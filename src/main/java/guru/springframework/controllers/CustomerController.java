@@ -22,7 +22,7 @@ public class CustomerController {
     @RequestMapping({"/list", "/"})
     public String listCustomers(Model model){
 
-        model.addAttribute("customers", customerService.listAllCustomers());
+        model.addAttribute("customers", customerService.listAll());
 
         return "customers/list";
     }
@@ -30,14 +30,14 @@ public class CustomerController {
     @RequestMapping("/show/{id}")
     public String getCustomer(@PathVariable Integer id, Model model){
 
-        model.addAttribute("customer", customerService.getCustomerById(id));
+        model.addAttribute("customer", customerService.getById(id));
 
         return "customer/show";
     }
 
     @RequestMapping("edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
-        model.addAttribute("customer", customerService.getCustomerById(id));
+        model.addAttribute("customer", customerService.getById(id));
         return "customer/customerform";
     }
 
@@ -49,14 +49,14 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String saveOrUpdateCustomer(Customer customer){
-        Customer newCustomer = customerService.saveOrUpdateCustomer(customer);
+        Customer newCustomer = customerService.saveOrUpdate(customer);
         return "redirect:customer/show/" + newCustomer.getId();
     }
 
     @RequestMapping("delete/{id}")
     public String delete(@PathVariable Integer id){
 
-        customerService.deleteCustomer(id);
+        customerService.delete(id);
         return "redirect:/customers/list/";
     }
 }
