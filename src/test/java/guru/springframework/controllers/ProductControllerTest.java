@@ -48,9 +48,9 @@ public class ProductControllerTest {
         //specific Mockito interaction, tell stub to return list of products
         when(productService.listAll()).thenReturn((List) products); //need to strip generics to keep Mockito happy.
 
-        mockMvc.perform(get("/product/list"))
+        mockMvc.perform(get("/products/list"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("product/list"))
+                .andExpect(view().name("products/list"))
                 .andExpect(model().attribute("products", hasSize(2)));
 
     }
@@ -77,7 +77,7 @@ public class ProductControllerTest {
 
         mockMvc.perform(get("/product/edit/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("product/productform"))
+                .andExpect(view().name("/product/productform"))
                 .andExpect(model().attribute("product", instanceOf(Product.class)));
     }
 
@@ -138,7 +138,7 @@ public class ProductControllerTest {
 
         mockMvc.perform(get("/product/delete/1"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/product/list"));
+                .andExpect(view().name("redirect:/products/list"));
 
         verify(productService, times(1)).delete(id);
     }
