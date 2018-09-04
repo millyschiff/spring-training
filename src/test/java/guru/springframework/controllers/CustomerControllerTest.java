@@ -49,7 +49,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(get("/list"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("customers/list"))
+                .andExpect(view().name("/list"))
                 .andExpect(model().attribute("customers", hasSize(2)));
     }
 
@@ -61,7 +61,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(get("/show/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("customer/show"))
+                .andExpect(view().name("/show"))
                 .andExpect(model().attribute("customer", instanceOf(Customer.class)));
     }
 
@@ -73,7 +73,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(get("/edit/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("customer/customerform"))
+                .andExpect(view().name("/customerform"))
                 .andExpect(model().attribute("customer", instanceOf(Customer.class)));
     }
 
@@ -83,7 +83,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(get("/new"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("customer/customerform"))
+                .andExpect(view().name("/customerform"))
                 .andExpect(model().attribute("customer", instanceOf(Customer.class)));
     }
 
