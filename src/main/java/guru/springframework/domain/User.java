@@ -1,10 +1,9 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
-public class User implements DomainObject{
+public class User implements DomainObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +18,11 @@ public class User implements DomainObject{
     private String password;
 
     private String encryptedPassword;
-    private  Boolean enabled = true;
+    private Boolean enabled = true;
 
     @Override
     public Integer getId() {
-        return null;
+        return id;
     }
 
     @Override
@@ -70,6 +69,4 @@ public class User implements DomainObject{
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
-
-
 }
