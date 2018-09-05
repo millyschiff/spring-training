@@ -1,7 +1,7 @@
 package guru.springframework.controllers;
 
 import guru.springframework.domain.Product;
-import guru.springframework.services.ProductServices;
+import guru.springframework.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ProductController {
 
-    private ProductServices productServices;
+    private ProductService productService;
 
     @Autowired
-    public void setProductService(ProductServices productServices) {
-        this.productServices = productServices;
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
     }
 
     @RequestMapping("/product/list")
     public String listProducts(Model model){
 
-        model.addAttribute("products", productServices.listAll());
+        model.addAttribute("products", productService.listAll());
 
         return "product/list";
     }
@@ -33,14 +33,14 @@ public class ProductController {
     @RequestMapping("/product/show/{id}")
     public String getProduct(@PathVariable Integer id, Model model){
 
-        model.addAttribute("product", productServices.getById(id));
+        model.addAttribute("product", productService.getById(id));
 
         return "product/show";
     }
 
     @RequestMapping("product/edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
-        model.addAttribute("product", productServices.getById(id));
+        model.addAttribute("product", productService.getById(id));
         return "/product/productform";
     }
 
@@ -52,14 +52,14 @@ public class ProductController {
 
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public String saveOrUpdateProduct(Product product){
-        Product savedProduct = productServices.saveOrUpdate(product);
+        Product savedProduct = productService.saveOrUpdate(product);
         return "redirect:/product/show/" + savedProduct.getId();
     }
 
     @RequestMapping("/product/delete/{id}")
     public String delete(@PathVariable Integer id){
 
-        productServices.delete(id);
+        productService.delete(id);
         return "redirect:/products/list";
     }
 }

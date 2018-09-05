@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Profile("jpadao")
-public class ProductServiceJpaDaoImpl implements ProductServices {
+public class ProductServiceJpaDaoImplTest implements ProductService {
 
 
     private EntityManagerFactory emf;

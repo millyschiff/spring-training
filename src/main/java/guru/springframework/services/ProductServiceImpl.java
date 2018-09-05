@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Profile("map")
-public class ProductServiceImpl extends AbstractMapService implements ProductServices{
+public class ProductServiceImpl extends AbstractMapService implements ProductService {
 
     //private Map<Integer, Product> products;
 
