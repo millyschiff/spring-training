@@ -55,4 +55,6 @@ public class CustomerServiceJpaDaoImpl implements CustomerService{
         em.remove(em.find(Customer.class, id));
         em.getTransaction().commit();
     }
+
+
 }

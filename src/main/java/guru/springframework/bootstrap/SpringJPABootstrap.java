@@ -11,8 +11,11 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+/**
+ * Created by jt on 12/9/15.
+ */
 @Component
-public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent> {
+public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
     private ProductService productService;
     private CustomerService customerService;
@@ -31,6 +34,42 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         loadProducts();
         loadCustomers();
+
+    }
+
+    public void loadCustomers() {
+        Customer customer1 = new Customer();
+        customer1.setFirst("Micheal");
+        customer1.setLast("Weston");
+        customer1.setAddress1("1 Main St");
+        customer1.setCity("Miami");
+        customer1.setState("Florida");
+        customer1.setZip(33101);
+        customer1.setEmail("micheal@burnnotice.com");
+        customer1.setPhone("305.333.0101");
+        customerService.saveOrUpdate(customer1);
+
+        Customer customer2 = new Customer();
+        customer2.setFirst("Fiona");
+        customer2.setLast("Glenanne");
+        customer2.setAddress1("1 Key Biscane Ave");
+        customer2.setCity("Miami");
+        customer2.setState("Florida");
+        customer2.setZip(33101);
+        customer2.setEmail("fiona@burnnotice.com");
+        customer2.setPhone("305.323.0233");
+        customerService.saveOrUpdate(customer2);
+
+        Customer customer3 = new Customer();
+        customer3.setFirst("Sam");
+        customer3.setLast("Axe");
+        customer3.setAddress1("1 Little Cuba Road");
+        customer3.setCity("Miami");
+        customer3.setState("Florida");
+        customer3.setZip(33101);
+        customer3.setEmail("sam@burnnotice.com");
+        customer3.setPhone("305.426.9832");
+        customerService.saveOrUpdate(customer3);
     }
 
     public void loadProducts(){
@@ -64,42 +103,6 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         product5.setPrice(new BigDecimal("25.99"));
         product5.setImageUrl("http://example.com/product5");
         productService.saveOrUpdate(product5);
-    }
 
-    public void loadCustomers(){
-        Customer customer1 = new Customer();
-        customer1.setFirst("Melissa");
-        customer1.setLast("Schiff");
-        customer1.setAddress1("542 Lorimer Street");
-        customer1.setAddress2("Apartment 3L");
-        customer1.setCity("Brooklyn");
-        customer1.setState("New York");
-        customer1.setZip(11211);
-        customer1.setEmail("melissa.schiff@levvel.io");
-        customer1.setPhone("3157066462");
-        customerService.saveOrUpdate(customer1);
-
-        Customer customer2 = new Customer();
-        customer2.setFirst("Karen");
-        customer2.setLast("Schiff");
-        customer2.setAddress1("109 Whedon Road");
-        customer2.setAddress2("Apartment 15");
-        customer2.setCity("Syracuse");
-        customer2.setState("New York");
-        customer2.setZip(13219);
-        customer2.setEmail("karen.schiff@levvel.io");
-        customer2.setPhone("3152893740");
-        customerService.saveOrUpdate(customer2);
-
-        Customer customer3 = new Customer();
-        customer3.setFirst("Katherine");
-        customer3.setLast("Baldwin");
-        customer3.setAddress1("101 Fern Park Road");
-        customer3.setCity("Camillus");
-        customer3.setState("New York");
-        customer3.setZip(13031);
-        customer3.setEmail("katherine.baldwin@levvel.io");
-        customer3.setPhone("3157064424");
-        customerService.saveOrUpdate(customer3);
     }
 }
