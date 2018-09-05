@@ -1,7 +1,7 @@
 package guru.springframework.controllers;
 
 import guru.springframework.domain.Product;
-import guru.springframework.services.ProductServices;
+import guru.springframework.services.ProductService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ProductControllerTest {
 
     @Mock //Mockito Mock object
-    private ProductServices productService;
+    private ProductService productService;
 
     @InjectMocks //setups up controller, and injects mock objects into it.
     private ProductController productController;
