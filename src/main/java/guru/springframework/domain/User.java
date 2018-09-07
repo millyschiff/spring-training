@@ -3,14 +3,14 @@ package guru.springframework.domain;
 import javax.persistence.*;
 
 @Entity
-public class User implements DomainObject {
+public class User extends AbstractDomainClass{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    @Version
-    private Integer version;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Integer id;
+//
+//    @Version
+//    private Integer version;
 
     private String username;
 
@@ -26,23 +26,23 @@ public class User implements DomainObject {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Cart cart;
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
+//    @Override
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    @Override
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public Integer getVersion() {
+//        return version;
+//    }
+//
+//    public void setVersion(Integer version) {
+//        this.version = version;
+//    }
 
     public String getUsername() {
         return username;

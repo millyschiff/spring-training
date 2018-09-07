@@ -3,14 +3,14 @@ package guru.springframework.domain;
 import javax.persistence.*;
 
 @Entity
-public class CartDetail implements DomainObject {
+public class CartDetail extends AbstractDomainClass {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    @Version
-    private Integer version;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Integer id;
+//
+//    @Version
+//    private Integer version;
 
     @ManyToOne
     private Cart cart;
@@ -18,23 +18,25 @@ public class CartDetail implements DomainObject {
     @OneToOne
     private Product product;
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
+    private Integer quantity;
 
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
+//    @Override
+//    public Integer getId() {
+//        return id;
+//    }
 
-    public Integer getVersion() {
-        return version;
-    }
+//    @Override
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
 
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
+//    public Integer getVersion() {
+//        return version;
+//    }
+//
+//    public void setVersion(Integer version) {
+//        this.version = version;
+//    }
 
     public Cart getCart() {
         return cart;
@@ -50,5 +52,13 @@ public class CartDetail implements DomainObject {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }
