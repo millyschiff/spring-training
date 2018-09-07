@@ -112,7 +112,7 @@ public class CustomerControllerTest {
         returnCustomer.getBilling().setState(state);
         returnCustomer.getBilling().setZip(zip);
         returnCustomer.setEmail(email);
-        returnCustomer.setPhone(phone;
+        returnCustomer.setPhone(phone);
 
         when(customerService.saveOrUpdate(Matchers.<Customer>any())).thenReturn(returnCustomer);
 

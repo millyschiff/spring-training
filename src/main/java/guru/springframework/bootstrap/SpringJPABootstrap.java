@@ -70,7 +70,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
             cartDetail.setQuantity(2);
             user.getCart().addCartDetail(cartDetail);
             userService.saveOrUpdate(user);
-        })
+        });
     }
 
     public void loadUsersAndCustomers() {
