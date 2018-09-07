@@ -16,11 +16,17 @@ public class Customer implements DomainObject {
     private String last;
     private String email;
     private String phone;
-    private String address1;
-    private String address2;
-    private String city;
-    private String state;
-    private String zip;
+    //private String address1;
+    //private String address2;
+    //private String city;
+    //private String state;
+    //private String zip;
+
+    @Embedded
+    private Address billing;
+
+    @Embedded
+    private Address shipping;
 
     @OneToOne
     private User user;
@@ -75,7 +81,7 @@ public class Customer implements DomainObject {
         this.phone = phone;
     }
 
-    public String getAddress1() {
+    /*public String getAddress1() {
         return address1;
     }
 
@@ -113,7 +119,7 @@ public class Customer implements DomainObject {
 
     public void setZip(String zip) {
         this.zip = zip;
-    }
+    }*/
 
     public User getUser() {
         return user;
@@ -121,5 +127,21 @@ public class Customer implements DomainObject {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Address getBilling() {
+        return billing;
+    }
+
+    public void setBilling(Address billing) {
+        this.billing = billing;
+    }
+
+    public Address getShipping() {
+        return shipping;
+    }
+
+    public void setShipping(Address shipping) {
+        this.shipping = shipping;
     }
 }

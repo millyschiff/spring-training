@@ -10,11 +10,11 @@ public class SpringmvcApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SpringmvcApplication.class, args);
 
-        System.out.println("BEANS *************");
-        System.out.println(ctx.getBeanDefinitionCount());
+        //System.out.println("BEANS *************");
+        //System.out.println(ctx.getBeanDefinitionCount());
 
-        for (String name : ctx.getBeanDefinitionNames()) {
-            System.out.println(name);
-        }
+        //for (String name : ctx.getBeanDefinitionNames()) {
+          //  System.out.println(name);
+        //}
     }
 }
