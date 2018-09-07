@@ -97,7 +97,7 @@ public class CustomerControllerTest {
         String address2 = "Apt 301";
         String city = "Miami";
         String state = "Florida";
-        Integer zip = 33101;
+        String zip = "33101";
         String email = "micheal@burnnotice.com";
         String phone = "305.333.0101";
 

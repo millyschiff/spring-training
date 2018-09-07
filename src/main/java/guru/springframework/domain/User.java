@@ -1,10 +1,9 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
-public class User implements DomainObject{
+public class User implements DomainObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +18,14 @@ public class User implements DomainObject{
     private String password;
 
     private String encryptedPassword;
-    private  Boolean enabled = true;
+    private Boolean enabled = true;
+
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Customer customer;
 
     @Override
     public Integer getId() {
-        return null;
+        return id;
     }
 
     @Override
@@ -71,5 +73,12 @@ public class User implements DomainObject{
         this.enabled = enabled;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
 
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+        customer.setUser(this);
+    }
 }

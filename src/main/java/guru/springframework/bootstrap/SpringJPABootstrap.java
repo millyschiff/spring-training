@@ -11,9 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-/**
- * Created by jt on 12/9/15.
- */
+
 @Component
 public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
@@ -44,7 +42,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         customer1.setAddress1("1 Main St");
         customer1.setCity("Miami");
         customer1.setState("Florida");
-        customer1.setZip(33101);
+        customer1.setZip("33101");
         customer1.setEmail("micheal@burnnotice.com");
         customer1.setPhone("305.333.0101");
         customerService.saveOrUpdate(customer1);
@@ -55,7 +53,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         customer2.setAddress1("1 Key Biscane Ave");
         customer2.setCity("Miami");
         customer2.setState("Florida");
-        customer2.setZip(33101);
+        customer2.setZip("33101");
         customer2.setEmail("fiona@burnnotice.com");
         customer2.setPhone("305.323.0233");
         customerService.saveOrUpdate(customer2);
@@ -66,7 +64,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         customer3.setAddress1("1 Little Cuba Road");
         customer3.setCity("Miami");
         customer3.setState("Florida");
-        customer3.setZip(33101);
+        customer3.setZip("33101");
         customer3.setEmail("sam@burnnotice.com");
         customer3.setPhone("305.426.9832");
         customerService.saveOrUpdate(customer3);

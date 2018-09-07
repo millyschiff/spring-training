@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-/**
- * Created by jt on 11/6/15.
- */
+
 @Controller
 public class ProductController {
 
@@ -24,24 +22,20 @@ public class ProductController {
 
     @RequestMapping("/product/list")
     public String listProducts(Model model){
-
         model.addAttribute("products", productService.listAll());
-
         return "product/list";
     }
 
     @RequestMapping("/product/show/{id}")
     public String getProduct(@PathVariable Integer id, Model model){
-
         model.addAttribute("product", productService.getById(id));
-
         return "product/show";
     }
 
     @RequestMapping("product/edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
         model.addAttribute("product", productService.getById(id));
-        return "/product/productform";
+        return "product/productform";
     }
 
     @RequestMapping("/product/new")
@@ -58,8 +52,7 @@ public class ProductController {
 
     @RequestMapping("/product/delete/{id}")
     public String delete(@PathVariable Integer id){
-
         productService.delete(id);
-        return "redirect:/products/list";
+        return "redirect:/product/list";
     }
 }
