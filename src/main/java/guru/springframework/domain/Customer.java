@@ -119,7 +119,7 @@ public class Customer implements DomainObject {
 
     public void setZip(String zip) {
         this.zip = zip;
-    }
+    }*/
 
     public User getUser() {
         return user;
@@ -127,7 +127,7 @@ public class Customer implements DomainObject {
 
     public void setUser(User user) {
         this.user = user;
-    }*/
+    }
 
     public Address getBilling() {
         return billing;
